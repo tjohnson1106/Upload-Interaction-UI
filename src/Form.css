@@ -1,0 +1,63 @@
+.upload,
+.upload__canvas {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.upload__canvas {
+  z-index: -1;
+}
+
+.upload__input {
+  display: none;
+}
+
+.upload {
+  z-index: 1;
+  background-color: rgba(4, 72, 59, 0.8);
+  background-image: radial-gradient(
+    ellipse at 50% 120%,
+    rgba(4, 72, 59, 1) 10%,
+    rgba(4, 72, 59, 0) 40%
+  );
+  background-position: 0 300px;
+  background-repeat: no-repeat;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s;
+}
+
+.upload ::after {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.upload--active {
+  background-position: 0 0;
+  opacity: 1;
+  visibility: visible;
+  transition-property: opacity;
+}
+
+.upload__icon {
+  position: relative;
+  left: calc(50% - 40px);
+  top: calc(50% - 40px);
+  width: 80px;
+  height: 80px;
+  padding: 15px;
+  border-radius: 100%;
+  background-color: #ebf2ea;
+}
+
+path {
+  fill: rgba(4, 72, 59, 0.8);
+}
