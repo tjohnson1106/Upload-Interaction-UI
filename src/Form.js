@@ -58,7 +58,7 @@ const Form = () => {
         "rgba(255, 255, 255, " +
         (1 - particles[i].life / particles[i].death) +
         ")";
-      ctx.fillRect(
+      ctx.fillRect({
         particles[i].x,
         particles[i].y,
         particles[i].size,
@@ -104,6 +104,20 @@ const Form = () => {
       iconAnimation.pause();
       cancelAnimationFrame(iconAnimationFrame);
   }
+
+  function addParticlesOnDrop(x, y, delay) {
+    var i = delay ? 0 : 20; // Only add extra particles for the first item dropped (no `delay`)
+    while (i--) {
+        createParticle({
+            x: x + rand(30),
+            y: y + rand(30),
+            vx: rand(2),
+            vy: rand(2),
+            death: 60
+        });
+}
+
+
 
   return (
     <form
