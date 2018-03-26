@@ -77,6 +77,34 @@ const Form = () => {
   }
   initIconParticles();
 
+  function initIconAnimation() {
+    iconAnimation = anime({
+      targets: uploadIcon,
+      translateY: -10,
+      duration: 800,
+      easing: 'easeInOutQuad',
+      direction: 'alternate',
+      loop: true,
+      autoplay: false
+    });
+  }
+  initIconAnimation();
+
+  function playIconAnimation() {
+    if (!playingIconAnimation) {
+      playIconAnimation = true;
+      iconAnimation.play();
+      iconAnimationFrame = requestAnimationFrame(loop);
+    }
+  }
+
+  function pauseIconAnimation() {
+    if (playingIconAnimation) {
+      playingIconAnimation = false;
+      iconAnimation.pause();
+      cancelAnimationFrame(iconAnimationFrame);
+  }
+
   return (
     <form
       className="upload"
